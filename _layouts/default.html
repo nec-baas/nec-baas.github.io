@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>NEC Mobile Backend Platform</title>
+    <title>{{ page.title }}</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116465316-2"></script>
@@ -20,16 +20,16 @@
 <body>
 <!-- navbar -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="../index.html">NEC BaaS</a>
+    <a class="navbar-brand" href="#">NEC BaaS</a>
     <ul class="navbar-nav">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="tru" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 Manual
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="latest/server/index.html" target="_blank">Server Manual</a>
-                <a class="dropdown-item" href="latest/developer/index.html" target="_blank">Developers Manual</a>
-                <a class="dropdown-item" href="#">Old versions</a>
+                <a class="dropdown-item" href="manual/latest/server/index.html" target="_blank">Server Manual</a>
+                <a class="dropdown-item" href="manual/latest/developer/index.html" target="_blank">Developers Manual</a>
+                <a class="dropdown-item" href="archives.html">Old versions</a>
             </div>
         </li>
         <li class="nav-item">
@@ -38,16 +38,7 @@
     </ul>
 </nav>
 
-<!-- main -->
-<div class="container-fluid">
-    <div class="row pt-4 pb-4">
-        <div class="col-sm-12">
-            <h3 class="pb-2">旧版マニュアル</h3>
-
-            Under construction...
-        </div>
-    </div>
-</div>
+{{ content }}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
