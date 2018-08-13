@@ -1,0 +1,17 @@
+footer {
+    position: absolute;
+    border-top: 1px solid #cccccc;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0 30px;
+    font-size: 15px;
+    color: #666666;
+}
+
+footer a:link {
+    color: #666666;
+}
+
+footer a:visited {
+    color: #666666;
+}
