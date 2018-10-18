@@ -1,9 +1,20 @@
+html {
+    position: relative; /* sticky footer */
+    min-height:  100%;
+}
+
+body {
+    margin-bottom: 60px; /* sticky footer margin */
+}
+
+/* sticky footer */
 footer {
     position: absolute;
     border-top: 1px solid #cccccc;
     bottom: 0;
     width: 100%;
-    padding: 10px 0 30px;
+    height: 60px;
+    padding: 10px 0;
     font-size: 15px;
     color: #666666;
 }
