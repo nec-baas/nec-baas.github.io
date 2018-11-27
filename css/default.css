@@ -1,0 +1,53 @@
+/*
+body {
+    padding-top: 60px;         
+}
+*/
+
+.content {
+    /*min-height: 700px;*/
+}
+
+footer {
+    margin-top: 40px;
+    margin-left: 15px;
+    position: relative;
+    top: 10000px;
+}
+
+.label-required {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    margin-left: 5px;
+    background-color: #d9534f;
+}
+
+/* override AdminLTE */
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th,
+.table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 1px solid #ddd;
+}
+
+/* fix header text color */
+@media(max-width: 767px)  {
+    .skin-blue .main-header .navbar .dropdown-menu li a {
+        color: #777;
+    }
+    .skin-blue .main-header .navbar .dropdown-menu li:hover a {
+        color: #fff;
+    }
+}
+
+/* #6448: fix double scrollbar */
+body > .wrapper {
+    overflow-x: visible;
+    overflow-y: visible;
+}

@@ -4,3 +4,5 @@ baas-manual/
 Gemfile.lock
 *~
 *.bak
+*.iml
+

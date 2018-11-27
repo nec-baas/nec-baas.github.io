@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>License key Request Form</title>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- bootStrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- bootStrap Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.8/css/AdminLTE.min.css" />
+    <!-- JQuery UI -->
+    <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css" />
+    <!-- countryselector -->
+    <link href="css/jquery-countryselector.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/default.css" />
+    <!-- scripts -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>    <!-- countrySelector -->
+    <script src="js/plugins/jquery.countrySelector.js"></script>
+    <!-- validate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/localization/messages_ja.min.js"></script>
+
+    <!-- BaaS SDK -->
+    <script src="js/baas/baas.js"></script>
+    <!-- Apps -->
+    <script src="js/config.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/form.validate.handler.js"></script>
+    <style type="text/css">
+        label.error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Main Content -->
+
+<section class="content-header" id="register_header">
+    <div class="form-group" align="right">
+        <button type="button" class="btn btn-default" id="user_settings">ユーザ設定</button>
+        <button type="button" class="btn btn-default" id="logout">ログアウト</button>
+    </div>
+    <h2  class="title" >ライセンスキー登録フォーム</h2>
+</section>
+<section class="content">
+    <div id="result-div" hidden="true" >
+        <div class="form-group" align="left">
+            <button type="button" class="btn btn-primary" id="updateBtn">登録情報更新</button>
+        </div>
+        <div class="form-group" style="width: 500px";>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>職種</th>
+                    <td id="result_Job_Role"></td>
+                </tr>
+                <tr>
+                    <th>御社名</th>
+                    <td id="result_Company"></td>
+                </tr>
+                <tr>
+                    <th>業種</th>
+                    <td id="result_Industry"></td>
+                </tr>
+                <tr>
+                    <th>国</th>
+                    <td id="result_Country"></td>
+                </tr>
+                <tr>
+                    <th>NEC モバイルバックエンド基盤のご利用状況</th>
+                    <td id="result_Level_of_Usage"></td>
+                </tr>
+                <tr>
+                    <th>導入予定時期</th>
+                    <td id="result_Project_Timeframe"></td>
+                </tr>
+                <tr>
+                    <th>ご利用用途</th>
+                    <td id="result_Solution_Area"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-group" style="width: 500px";>
+            <h3>ライセンスキー</h3>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>ライセンスキーファイル(v7.5)　　</th>
+                    <td><button id="download_license_key" value="v7.5" class="btn btn-primary" >ダウンロード</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" id="request-div" hidden="true">
+        <form id="requestForm" class="col-xs-5" role="form" style="font-family: inherit; font-size: 13px; color: rgb(51, 51, 51); width: 500px;">
+            <input id="_id" name="_id" hidden="true" >
+            <div class="form-group">
+                <label  for='Job_Role'>
+                  職種:            </label>
+                <span class="label-required">必須</span>
+                <select id="Job_Role" class="form-control" name="Job_Role">
+                    <option value="">選択</option>
+                    <option value="開発者/エンジニア"> 開発者/エンジニア</option>
+                    <option value="システム管理者"> システム管理者</option>
+                    <option value="ITアーキテクト"> ITアーキテクト</option>
+                    <option value="ITスペシャリスト"> ITスペシャリスト</option>
+                    <option value="IT部門長またはCIO/CTO"> IT部門長またはCIO/CTO</option>
+                    <option value="経営者/役員/本部長またはCxO"> 経営者/役員/本部長またはCxO</option>
+                    <option value="企業家 (創業者/共同創業者)"> 企業家 (創業者/共同創業者)</option>
+                    <option value="セールス/マーケティング"> セールス/マーケティング</option>
+                    <option value="アドバイザー/コンサルタント">アドバイザー/コンサルタント</option>
+                    <option value="教育機関/研究者"> 教育機関/研究者</option>
+                    <option value="投資家"> 投資家</option>
+                    <option value="報道機関/メディアアナリスト"> 報道機関/メディアアナリスト</option>
+                    <option value="学生"> 学生</option>
+                    <option value="その他"> その他</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for='Company'>
+                  御社名:            </label>
+                <span class="label-required">必須</span>
+                <input type="text" class="form-control" name='Company' id='Company'>
+            </div>
+            <div class="form-group">
+                <label for='Industry'>
+                  業種:            </label>
+                <span class="label-required">必須</span>
+                <select id="Industry" class="form-control" name="Industry" >
+                    <option value="">選択</option>
+                    <option value="農業 &amp; 鉱業">農業 &amp; 鉱業  </option>
+                    <option value="コンピューター &amp; エレクトロニクス">コンピューター &amp; エレクトロニクス  </option>
+                    <option value="消費財">消費財  </option>
+                    <option value="教育">教育  </option>
+                    <option value="エネルギー＆ユーティリティ">エネルギー＆ユーティリティ  </option>
+                    <option value="金融サービス">金融サービス  </option>
+                    <option value="ゲーム">ゲーム  </option>
+                    <option value="政府">政府  </option>
+                    <option value="医療">医療  </option>
+                    <option value="ライフサイエンス">ライフサイエンス  </option>
+                    <option value="製造">製造  </option>
+                    <option value="メディア &amp; エンターテイメント">メディア &amp; エンターテイメント  </option>
+                    <option value="非営利団体">非営利団体  </option>
+                    <option value="プロフェッショナルサービス">プロフェッショナルサービス  </option>
+                    <option value="不動産 &amp; 建設">不動産 &amp; 建設  </option>
+                    <option value="小売">小売  </option>
+                    <option value="ソフトウェア＆インターネット">ソフトウェア＆インターネット  </option>
+                    <option value="通信">通信  </option>
+                    <option value="運輸 &amp; ロジスティクス">運輸 &amp; ロジスティクス  </option>
+                    <option value="旅行 &amp; 接客">旅行 &amp; 接客  </option>
+                    <option value="卸売 &amp; 流通">卸売 &amp; 流通  </option>
+                    <option value="その他">その他  </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label  for='Country'>
+                  国:            </label>
+                <span class="label-required">必須</span>
+                <select id="Country" class="form-control" name="Country"></select>
+            </div>
+            <div class="form-group">
+                <label  for='Level_of_Usage'>
+                  NEC モバイルバックエンド基盤のご利用状況:            </label>
+                <span class="label-required">必須</span>
+                <select id="Level_of_Usage" class="form-control" name="Level_of_Usage" >
+                    <option value="">選択</option>
+                    <option value="現在は使用していない">現在は使用していない  </option>
+                    <option value="評価中または試験中">評価中または試験中  </option>
+                    <option value="開発 / テストワークロードを実行">開発 / テストワークロードを実行  </option>
+                    <option value="プロダクションワークロードを実行">プロダクションワークロードを実行  </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label  for='Project_Timeframe'>
+                  導入予定時期:            </label>
+                <span class="label-required">必須</span>
+                <select id="Project_Timeframe" class="form-control" name="Project_Timeframe" >
+                    <option value="">選択</option>
+                    <option value="予定していない">予定していない</option>
+                    <option value="3 ヶ月以内">3 ヶ月以内</option>
+                    <option value="半年以内">半年以内</option>
+                    <option value="1 年以内">1 年以内</option>
+                    <option value="1 年後以降で検討">1 年後以降で検討</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label  for='Solution_Area'>
+                  ご利用用途:            </label>
+                <span class="label-required">必須</span>
+                <select id="Solution_Area" class="form-control" name="Solution_Area" >
+                    <option value="">選択</option>
+                    <option value="アーカイブ">アーカイブ  </option>
+                    <option value="バックアップ &amp; ストレージ">バックアップ &amp; ストレージ  </option>
+                    <option value="バッチ処理">バッチ処理  </option>
+                    <option value="ビッグデータ、分析、ビジネスインテリジェンス">ビッグデータ、分析、ビジネスインテリジェンス  </option>
+                    <option value="ビジネスアプリケーション">ビジネスアプリケーション </option>
+                    <option value="コンテンツ配信">コンテンツ配信  </option>
+                    <option value="データセンターの移行">データセンターの移行  </option>
+                    <option value="データベース &amp; データウェアハウス">データベース &amp; データウェアハウス  </option>
+                    <option value="開発 &amp; テスト">開発 &amp; テスト  </option>
+                    <option value="災害対策">災害対策  </option>
+                    <option value="高可用性">高可用性  </option>
+                    <option value="ハイパフォーマンスコンピューティング">ハイパフォーマンスコンピューティング  </option>
+                    <option value="ハイブリッド型アーキテクチャ">ハイブリッド型アーキテクチャ  </option>
+                    <option value="IoT">IoT  </option>
+                    <option value="モバイル">モバイル  </option>
+                    <option value="ウェブ &amp; ウェブアプリ">ウェブ &amp; ウェブアプリ  </option>
+                    <option value="その他">その他  </option>
+                </select>
+            </div>
+            <div class="form-group" id="eula-div">
+                <label>
+                    無償ライセンスキーをダウンロードするには、 NECモバイルバックエンド基盤サーバ
+                    <a class="list-link" href="eula-free-license.html" target="_blank" >無償ライセンスのご使用条件</a>
+                    に同意する必要です。 </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="agree_eula" name="agree_eula" value="true"/> 私は同意します。
+                    </label>
+                    <span class="label-required">必須</span>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="register" disabled="true" >登録</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer id="footer">
+    Copyright &copy; 2013-2018, NEC Corporation.
+</footer>
+<script>
+    $('#agree_eula').change(function () {
+        var isChecked = $('#agree_eula').prop('checked');
+        $('#register').prop('disabled', !isChecked);
+    });
+    $("#Country").countrySelector({ value: "JPN", codeMode: "alpha3"});
+</script>
+</body>
+
+</html>
+
