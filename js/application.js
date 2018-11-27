@@ -5,10 +5,6 @@ $(function() {
     var USER_BUCKET_NAME = "free_license_user";
     //ライセンスキー格納ファイルバケット
     var LICENSE_KEY_BUCKET_NAME = "free_license";
-    //ライセンスキー名の PREFIX
-    var FILENAME_PREFIX = "free_license_";
-    //ライセンスキー名の PREFIX
-    var FILENAME_SUFFIX = ".txt";
     var EMAIL = "email";
 
     var App = {
@@ -58,8 +54,8 @@ $(function() {
             $("#delete_user").click(function () {
                 self.deleteUserDialog();
             });
-            $('#download_license_key').click(function () {
-                var filename = FILENAME_PREFIX + this.value + FILENAME_SUFFIX;
+            $("[id^='download_license_key']").click(function () {
+                var filename = this.value;
                 self.downloadLicenseKey(filename)
                     .then(function (blob) {
                         var link = document.createElement( 'a' );
