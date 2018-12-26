@@ -83,8 +83,6 @@ title: NEC Mobile Backend Platform - Downloads
                 </tbody>
             </table>
 
-            <p> *1: All-In-One Servers とは API/Console Server、 SSEPush Server と Cloud Functions Server を プリインストールする AMI のこと
-
             <h4 class="pb-2"><i class="fab fa-docker fa-sm pr-1"></i> Docker Container</h4>
 
             <ul>
@@ -109,10 +107,36 @@ title: NEC Mobile Backend Platform - Downloads
                 使用方法については <a href="https://github.com/nec-baas/k8s-baas-server">k8s-baas-server</a>
                 を参照してください。
 
-            <h4 class="pb-2"><i class="fas fa-hdd fa-sm pr-1"></i> VM Image</h4>
+            <h4 class="pb-2"><i class="fas fa-hdd fa-sm pr-1"></i> Vagrant Box Image</h4>
 
-            <p>準備中</p>
+            <p> Vagrant Box Image の使い方について、<a href="https://github.com/nec-baas/ansible-playbook-necbaas-server/blob/master/vm/vagrantbox/vagrant-box-usage.md">こちら</a>を参照してください。
 
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Pre-installed Servers</th>
+                    <th>Version</th>
+                    <th>Box Name</th>
+                    <th>Base Box</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>All-In-One Servers *1</td>
+                    <td>7.5.1</td>
+                    <td>necbaas/all-in-one-servers</td>
+                    <td>centos/7 v1811.02</td>
+                </tr>
+                <tr>
+                    <td>API/Console Server</a></td>
+                    <td>7.5.1</td>
+                    <td>necbaas/baas-server</td>
+                    <td>centos/7 v1811.02</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p> *1: All-In-One Servers とは API/Console Server、 SSEPush Server と Cloud Functions Server を プリインストールする AMI のこと
         </div>
     </div>
 </div>
